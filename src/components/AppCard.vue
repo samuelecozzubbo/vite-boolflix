@@ -1,26 +1,25 @@
 <script>
 export default{
   name: "AppCard",
+  props: ['info'],
 }
 </script>
 
 <template>
     <div class="card">
         <div class="title">
-            <strong>Titolo:</strong>Ritorno al Futuro
+            <strong>Titolo:</strong>{{ info.title }}
         </div>
         <div class="originalTitle">
-            <strong>Titolo originale:</strong>Back to future
+            <strong>Titolo originale:</strong>{{ info.original_title }}
         </div>
         <div class="language">
-            English
+            {{ info.original_language }}
         </div>
         <div class="rank">
-            Voto: 5
+            {{ info.vote_average }}
         </div>
     </div>
-    
-    
 </template>
 
 <style lang="scss" scoped>
@@ -30,7 +29,5 @@ export default{
 .card{
     background-color: black;
     color: white;
-    height: 300px;
 }
-
 </style>

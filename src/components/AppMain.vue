@@ -21,7 +21,7 @@ export default{
         <div class="row">
             <div class="col-6 col-md-4 col-lg-3 mb-5" v-for="film in store.filmList">
                 <!-- Componente card -->
-                 <AppCard/>
+                 <AppCard :info="film"/>
             </div>
         </div>
     </section>
