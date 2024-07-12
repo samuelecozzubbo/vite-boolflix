@@ -11,7 +11,7 @@ export default{
 
 <template>
     <header>
-        <AppSearch/>  
+        <AppSearch @search="$emit('search')"/>  
     </header>
 </template>
 

@@ -18,13 +18,29 @@ export default{
       store,
     }
   },
+  methods:{
+    getFilms(){
+      let endPoint = store.apiUrl;
+      //Ricerca personalizzata 
+      endPoint += `?${store.searchText}`;
+      axios.
+      get(endPoint)
+      .then(result => {
+        console.log(result.data.results);
+        store.filmList = result.data.results;
+      })
+      .catch(err =>{
+        console.log(err);
+      })
+    },
+  } 
 }
 
 
 </script>
 
 <template>
-  <AppHeader/>
+  <AppHeader @search="getFilms"/>
   
 </template>
 

@@ -29,9 +29,9 @@ export default {
             <div class="col-6">
                 <form class="d-flex justify-content-end">
                         <div class="search">
-                            <input class="form-control" type="text" id="search" placeholder="Search">
+                            <input class="form-control" type="text" id="search" placeholder="Search" v-model="store.searchText">
                         </div>
-                        <button type="sumbit" class="btn btn-danger mb-2">Search</button>
+                        <button type="sumbit" class="btn btn-danger mb-2" @click.prevent="$emit('search')">Search</button>
                 </form>
             </div>
         </div>
