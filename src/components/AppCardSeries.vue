@@ -32,7 +32,7 @@ export default{
                     <strong>Titolo:</strong>{{ info.original_name }}
                 </div>
                 <div class="originalTitle">
-                    <strong>Titolo originale:</strong>{{ info.overview }}
+                    <strong>Overview:</strong>{{ info.overview }}
                 </div>
                 <div class="language">
                     <img v-if="flagUrl" :src="flagUrl" alt="Flag" class="flag"/>
@@ -79,8 +79,9 @@ export default{
 .poster {
     background-color: black;
   img {
-    width: 100%;
-    object-fit: cover;
+    display: block;
+    max-width: 100%;
+    height: 100%;
   }
 }
 
