@@ -60,4 +60,7 @@ export default{
 
 <style lang="scss">
 @use './styles/general.scss' as *;
+body{
+  background-color: #434343;
+}
 </style>

@@ -52,31 +52,32 @@ export default{
 
 
 .series {
-  width: 100%;
-  height: 300px;
-  position: relative;
+    width: 100%;
+    height: 300px;
+    position: relative;
 }
 
 .card {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
 
 .series:hover .card {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .poster, .poster-info {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
 }
 
 .poster {
+    background-color: black;
   img {
     width: 100%;
     object-fit: cover;
@@ -84,10 +85,12 @@ export default{
 }
 
 .poster-info {
-  transform: rotateY(180deg);
-  padding: 10px;
-  overflow-y: auto;
-  scrollbar-width: none;
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
 
   .flag {
     width: 30px;
