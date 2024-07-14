@@ -21,12 +21,12 @@ export default{
 <template>
     <section class="container">
         <div class="row">
-          <h3>Films</h3>
+          <h3 v-if="store.filmList.length !== 0">Films</h3>
             <div class="col-6 col-md-3 col-lg-2 mb-1" v-for="film in store.filmList">
                 <!-- Componente card -->
                  <AppCard :info="film"/>
             </div>
-            <h3>Series</h3>
+            <h3 v-if="store.seriesList.length !== 0">Series</h3>
             <div class="col-6 col-md-3 col-lg-2 mb-1" v-for="series in store.seriesList">
                 <!-- Componente card -->
                  <AppCardSeries :info="series"/>

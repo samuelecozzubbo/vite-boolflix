@@ -47,6 +47,8 @@ export default{
     color: white;
     width: 100%;
     height: 300px;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
     .flag{
