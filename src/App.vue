@@ -23,13 +23,24 @@ export default{
   methods:{
     getFilms(){
       let endPoint = store.apiUrl;
+      let endPointSeries = store.apiUrlSeries;
       //Ricerca personalizzata 
       endPoint += `?${store.searchText}`;
+      endPointSeries += `?${store.searchText}`;
       axios.
       get(endPoint)
       .then(result => {
         console.log(result.data.results);
         store.filmList = result.data.results;
+      })
+      .catch(err =>{
+        console.log(err);
+      });
+      axios.
+      get(endPointSeries)
+      .then(result => {
+        console.log(result.data.results);
+        store.seriesList = result.data.results;
       })
       .catch(err =>{
         console.log(err);

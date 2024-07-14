@@ -2,11 +2,13 @@
 import AppCard from './AppCard.vue';
 //import state management store
 import { store } from '../store';
+import AppCardSeries from './AppCardSeries.vue';
 
 export default{
   name: "CharactersList",
   components:{
     AppCard,
+    AppCardSeries,
   },
   data(){
     return{
@@ -19,9 +21,15 @@ export default{
 <template>
     <section class="container">
         <div class="row">
-            <div class="col-6 col-md-4 col-lg-3 mb-5" v-for="film in store.filmList">
+          <h3>Films</h3>
+            <div class="col-6 col-md-3 col-lg-2 mb-1" v-for="film in store.filmList">
                 <!-- Componente card -->
                  <AppCard :info="film"/>
+            </div>
+            <h3>Series</h3>
+            <div class="col-6 col-md-3 col-lg-2 mb-1" v-for="series in store.seriesList">
+                <!-- Componente card -->
+                 <AppCardSeries :info="series"/>
             </div>
         </div>
     </section>

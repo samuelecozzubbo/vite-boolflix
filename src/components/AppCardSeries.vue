@@ -1,7 +1,7 @@
 <script>
 
 export default{
-  name: "AppCard",
+  name: "AppCardSeries",
   props: ['info'],
   computed: {
     flagUrl() {
@@ -20,12 +20,12 @@ export default{
 </script>
 
 <template>
-    <div class="film">
+    <div class="series">
         <div class="title">
-            <strong>Titolo:</strong>{{ info.title }}
+            <strong>Titolo:</strong>{{ info.original_name }}
         </div>
         <div class="originalTitle">
-            <strong>Titolo originale:</strong>{{ info.original_title }}
+            <strong>Titolo originale:</strong>{{ info.overview }}
         </div>
         <div class="language">
             <img v-if="flagUrl" :src="flagUrl" alt="Flag" class="flag"/>
@@ -42,11 +42,13 @@ export default{
 @use '../styles/general.scss' as *;
 
 
-.film{
+.series{
     background-color: black;
     color: white;
     width: 100%;
     height: 300px;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
     .flag{
