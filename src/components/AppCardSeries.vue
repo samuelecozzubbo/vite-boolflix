@@ -11,6 +11,8 @@ export default{
         'it': '/flags/italy.png',
         'fr': '/flags/france.png',
         'es': '/flags/spain.png',
+        'ja': '/flags/japan.png',
+        'ko': '/flags/south-korea.png',
       };
       // Ritorna l'URL della bandiera o null se non disponibile
       return languageToFlag[this.info.original_language] || null;
