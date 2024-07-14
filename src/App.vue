@@ -22,6 +22,7 @@ export default{
   },
   methods:{
     getFilms(){
+      store.loading=true;
       let endPoint = store.apiUrl;
       let endPointSeries = store.apiUrlSeries;
       //Ricerca personalizzata 
@@ -35,6 +36,7 @@ export default{
       })
       .catch(err =>{
         console.log(err);
+        store.loading=false;
       });
       axios.
       get(endPointSeries)
@@ -44,6 +46,7 @@ export default{
       })
       .catch(err =>{
         console.log(err);
+        store.loading=false;
       })
     },
   } 

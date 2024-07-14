@@ -33,7 +33,8 @@ export default{
     <div class="film">
         <div class="card">
             <div class="poster">
-                <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="movie-poster">
+                <img v-if="info.poster_path" :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="movie-poster">
+                <img v-else src="/public/image_not_found.png" alt="image not found">
             </div>
             <div class="poster-info">
                 <div class="title">

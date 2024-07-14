@@ -16,7 +16,15 @@ export default{
       };
       // Ritorna l'URL della bandiera o null se non disponibile
       return languageToFlag[this.info.original_language] || null;
-    }
+    },
+    starRating() {
+      // Convert the vote from 1 to 10 scale to 1 to 5 scale
+      return Math.ceil(this.info.vote_average / 2);
+    },
+    emptyStars() {
+      // Calculate the number of empty stars
+      return 5 - this.starRating;
+    },
     }
 }
 </script>
@@ -25,7 +33,8 @@ export default{
     <div class="series">
         <div class="card">
             <div class="poster">
-                <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="series-poster">
+                <img v-if="info.poster_path" :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="series-poster">
+                <img v-else src="/public/image_not_found.png" alt="image not found">
             </div>
             <div class="poster-info">
                 <div class="title">
@@ -39,7 +48,10 @@ export default{
                     <span v-else>{{ info.original_language }}</span>
                 </div>
                 <div class="rank">
-                    {{ info.vote_average }}
+                    <div class="stars">Rank: 
+                        <i v-for="n in starRating" :key="'filled-' + n" class="fas fa-star filled"></i>
+                        <i v-for="n in emptyStars" :key="'empty-' + n" class="far fa-star"></i>
+                    </div>
                 </div>
             </div>
         </div>
