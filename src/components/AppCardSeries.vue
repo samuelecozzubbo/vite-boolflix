@@ -21,18 +21,25 @@ export default{
 
 <template>
     <div class="series">
-        <div class="title">
-            <strong>Titolo:</strong>{{ info.original_name }}
-        </div>
-        <div class="originalTitle">
-            <strong>Titolo originale:</strong>{{ info.overview }}
-        </div>
-        <div class="language">
-            <img v-if="flagUrl" :src="flagUrl" alt="Flag" class="flag"/>
-            <span v-else>{{ info.original_language }}</span>
-        </div>
-        <div class="rank">
-            {{ info.vote_average }}
+        <div class="card">
+            <div class="poster">
+                <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="series-poster">
+            </div>
+            <div class="poster-info">
+                <div class="title">
+                    <strong>Titolo:</strong>{{ info.original_name }}
+                </div>
+                <div class="originalTitle">
+                    <strong>Titolo originale:</strong>{{ info.overview }}
+                </div>
+                <div class="language">
+                    <img v-if="flagUrl" :src="flagUrl" alt="Flag" class="flag"/>
+                    <span v-else>{{ info.original_language }}</span>
+                </div>
+                <div class="rank">
+                    {{ info.vote_average }}
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -42,17 +49,52 @@ export default{
 @use '../styles/general.scss' as *;
 
 
-.series{
-    background-color: black;
-    color: white;
-    width: 100%;
-    height: 300px;
-    overflow-y: auto;
-    scrollbar-width: none;
+.series {
+  width: 100%;
+  height: 300px;
+  position: relative;
 }
 
-    .flag{
-      width: 30px;
-      height: auto;
-    }
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.series:hover .card {
+  transform: rotateY(180deg);
+}
+
+.poster, .poster-info {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.poster {
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.poster-info {
+  transform: rotateY(180deg);
+  padding: 10px;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  .flag {
+    width: 30px;
+    height: auto;
+  }
+}
+
+.poster-info .flag {
+  width: 30px;
+  height: auto;
+}
 </style>
