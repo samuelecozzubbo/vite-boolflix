@@ -1,6 +1,6 @@
 <template>
     <div class="loader-container">
-      <div class="loader"></div>
+      <div class="loader">Fai la tua prima ricerca</div>
     </div>
 </template>
   
@@ -11,7 +11,11 @@
 </script>
   
 <style lang="scss" scoped>
-    .loader-container {
+.loader{
+  color: white;
+  font-size: 1.5em;
+}
+   /*  .loader-container {
         padding-top: 5rem;
         display: flex;
         justify-content: center;
@@ -34,5 +38,5 @@
         100% {
         transform: rotate(360deg);
         }
-    }
+    } */
 </style>
